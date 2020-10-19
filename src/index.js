@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Container, Row } from 'react-bootstrap';
+import Saludo from './components/saludo/index';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const saludos = 
+[
+    'Miguel', 'Julio', 'Glo', 'Kike', 'Lalo'
+];
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    <React.StrictMode>
+        <div>
+            <Container>
+                <Row>
+                    { saludos.map((data, key) => <Saludo key={ key } nombre={ data } /> ) }
+                </Row>
+            </Container>
+        </div>
+    </React.StrictMode>,
+document.getElementById('root'));
